@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My TODO list</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="calendar.css">
+
+</head>
+<body>
+    <!-- Side bar -->
+    <div class="side-bar">
+        <div id="addTask" class="side-bar-elements">Add task</div>
+        <div id="today" class="side-bar-elements" >Today</div>
+        <div id="upcoming" class="side-bar-elements">Upcoming</div>
+        <div id = "completed" class="side-bar-elements">Completed</div>
+    </div>
+    <!-- addTask Modal -->
+     <div id="addTaskModal" style="display: none;">
+        <input type="text" id="taskName" placeholder="Enter a task">
+        <input type="text" id="taskDescription" placeholder="Description">
+
+        <div id="addTaskModal-select">
+
+            <button id="addDateBtn">Add Date</button>
+
+            <div id="calendarContainer" class="calendar-container">
+                <div id="calendarHeader">
+                    <span id="monthYear"></span>
+                </div>
+                <table>
+                    <!-- Calendar days will be generated dynamically -->
+                </table>
+            </div>
+        </div>
+
+        <div id="addTaskModal-buttons">
+            <button class="button" id="cancelButton">Cancel</button>
+            <button class="button" id="addTaskButton">Add Task</button>
+        </div>
+     </div>
+
+    <!-- Details bar -->
+    <div class=""></div>
+    <script type = "module" src="index.js"></script>
+</body>
+</html>
