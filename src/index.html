@@ -3,46 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My TODO list</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="calendar.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
 </head>
 <body>
-    <!-- Side bar -->
-    <div class="side-bar">
-        <div id="addTask" class="side-bar-elements">Add task</div>
-        <div id="today" class="side-bar-elements" >Today</div>
-        <div id="upcoming" class="side-bar-elements">Upcoming</div>
-        <div id = "completed" class="side-bar-elements">Completed</div>
+    <div class="h-screen flex">
+        <!--Side bar-->
+        <div id = "sideBar" class="w-64 h-screen bg-blue-500 flex flex-col items-center justify-evenly">
+            <button id="addTask">Add task</button>
+            <button id="addProject">Add project</button>
+            <div id="home">Home</div>
+            <!-- TODO: Display projects individually below -->
+        </div>
+        <!-- Main area-->
+        <div id="mainArea" class="flex-1 bg-red-100 w-screen h-screen text-center">
+            <h1>Hello world</h1>
+        </div>
     </div>
-    <!-- addTask Modal -->
-     <div id="addTaskModal" style="display: none;">
-        <input type="text" id="taskName" placeholder="Enter a task">
-        <input type="text" id="taskDescription" placeholder="Description">
+    <!-- Explaining tags: fixed inset-0: covers screen -->
+    <div id="popup-addTask" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                hidden flex items-center justify-center bg-white">
+        <!-- Inner box  -->
+        <div class="">
+            <form id="editForm">
+                <input type="text" id="taskInput" class="w-full" placeholder="Task Input">
+                <textarea id="taskDetails" class="w-full" placeholder="Task Details"></textarea>
+                <div class="flex justify-evenly">
+                    <button type="button" id="closePopUp" class="bg-red-300 border">Close</button>
+                    <button type="submit" class="bg-green-300 border">Save</button>
 
-        <div id="addTaskModal-select">
-
-            <button id="addDateBtn">Add Date</button>
-
-            <div id="calendarContainer" class="calendar-container">
-                <div id="calendarHeader">
-                    <span id="monthYear"></span>
                 </div>
-                <table>
-                    <!-- Calendar days will be generated dynamically -->
-                </table>
-            </div>
+            </form>
         </div>
+    </div>
 
-        <div id="addTaskModal-buttons">
-            <button class="button" id="cancelButton">Cancel</button>
-            <button class="button" id="addTaskButton">Add Task</button>
-        </div>
-     </div>
-
-    <!-- Details bar -->
-    <div class=""></div>
-    <script type = "module" src="index.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
