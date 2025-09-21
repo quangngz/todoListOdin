@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="h-screen flex">
+        <!--Side bar-->
+        <div id = "sideBar" class="w-64 h-screen bg-blue-500 flex flex-col items-center justify-evenly">
+            <button id="addTask" class="px-4 py-2 bg-white text-black rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">Add task</button>
+            <button id="addProject" class="px-4 py-2 bg-white text-black rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">Add project</button>
+            <div id="home">Home</div>
+            <!-- TODO: Display projects individually below -->
+        </div>
+        <!-- Main area-->
+        <div id="mainArea" class="flex-1 bg-red-100 w-screen h-screen text-center">
+        </div>
+    </div>
+    <!-- Explaining tags: fixed inset-0: covers screen -->
+    <!-- Modal backdrop + centered card -->
+    <div id="popup-addTask" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                     items-center justify-center bg-black/40"> <!--Add hidden-->
+        <div class="bg-white rounded-lg shadow-lg w-96 p-6">
+            <form id="editForm" class="space-y-4">
+                <label class="block">
+                    <span class="text-sm font-medium text-gray-700">Task</span>
+                    <input type="text" id="taskInput" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-300" placeholder="Task Input">
+                </label>
+                <label class="block">
+                    <span class="text-sm font-medium text-gray-700">Details</span>
+                    <textarea id="taskDetails" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-300" placeholder="Task Details"></textarea>
+                </label>
+                    <label class="block">
+                        <span class="text-sm font-medium text-gray-700">Date</span>
+                        <input type="datetime-local"  id = "time" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-300">
+                    </label>
+                    <fieldset>
+                        <legend class="text-sm font-medium text-gray-700">Priority</legend>
+                        <!-- Peer check, very cool-->
+                        <div class="mt-2 flex gap-2 flex-wrap">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="radio" name="priority" value="critical" class="peer sr-only" >
+                                <span class="px-3 py-1 rounded-full bg-red-100 text-red-700 text-sm peer-checked:bg-red-600 peer-checked:text-white peer-focus:ring-2 peer-focus:ring-red-300">Critical</span>
+                            </label>
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="radio" name="priority" value="important" class="peer sr-only">
+                                <span class="px-3 py-1 rounded-full bg-yellow-100 text-yellow-800 text-sm peer-checked:bg-yellow-600 peer-checked:text-white peer-focus:ring-2 peer-focus:ring-yellow-300">Important</span>
+                            </label>
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="radio" name="priority" value="desirable" class="peer sr-only">
+                                <span class="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-sm peer-checked:bg-blue-600 peer-checked:text-white peer-focus:ring-2 peer-focus:ring-blue-300">Desirable</span>
+                            </label>
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="radio" name="priority" value="optional" class="peer sr-only">
+                                <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm peer-checked:bg-gray-600 peer-checked:text-white peer-focus:ring-2 peer-focus:ring-gray-300">Optional</span>
+                            </label>
+                        </div>
+                    </fieldset>                    
+
+                <div class="flex justify-end gap-3">
+                    <button type="button" id="closePopUp" class="px-3 py-1 rounded-md bg-red-100 text-red-700 hover:bg-red-200">Close</button>
+                    <button type="submit" class="px-3 py-1 rounded-md bg-blue-600 text-white hover:bg-blue-700">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
