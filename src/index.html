@@ -68,5 +68,21 @@
         </div>
     </div>
 
+
+    <div id="popup-addProject" class=" fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+                                     items-center justify-center bg-black/40">
+        <div class="bg-white rounded-lg shadow-lg w-96 p-6">
+            <form id="projectForm" class="space-y-4"> <!--space-y-4 to provide verical gaps between inner components-->
+                <label class="block">
+                    <span class="text-sm font-medium text-gray-700">Project name</span>
+                    <input type="text" id="projectInput" class="mt-1 block w-full rounded-md border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-300" placeholder="Project Input">
+                </label>
+                <div class="flex justify-end gap-3">
+                    <button type="button" id="closeProjectPopup" class="px-3 py-1 rounded-md bg-red-100 text-red-700 hover:bg-red-200">Close</button>
+                    <button type="submit" class="px-3 py-1 rounded-md bg-blue-600 text-white hover:bg-blue-700">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
