@@ -72,7 +72,7 @@ editForm && editForm.addEventListener("submit", (e) => {
         }
         isEditing = false;
         editingIndex = null;
-        displayProject(projectList[currProject], mainArea, editTask);
+        displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
     } else {
         appendTask(title, details, taskPriority, timeInput && timeInput.value);
     }
@@ -100,7 +100,7 @@ projectForm && projectForm.addEventListener("submit", (e) => {
         if (project) project.title = title;
         isProjectEditing = false;
         projectEditingIndex = null;
-        displayProject(projectList[currProject], mainArea, editTask);
+        displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
     } else {
         addProjectFunc(title);
     }
@@ -142,7 +142,21 @@ function editTask(taskIndex) {
 function appendTask(title, details, priority, timeVal) {
     const task = new Task(title, details, priority, timeVal);
     projectList[currProject].addTask(task);
-    displayProject(projectList[currProject], mainArea, editTask);
+    displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
+}
+
+function deleteTask(taskIdx) {
+    // remove the task from the current project's TaskList
+    if (!projectList[currProject]) return;
+    projectList[currProject].TaskList.splice(taskIdx, 1);
+    displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
+}
+
+function completeTask(taskIdx) {
+    const task = projectList[currProject] && projectList[currProject].TaskList[taskIdx];
+    if (!task) return;
+    task.completed = !task.completed;
+    displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
 }
 
 // Project helpers
@@ -171,7 +185,7 @@ function addProjectFunc(title) {
 
 function changeProject(projectIdx) {
     currProject = projectIdx;
-    displayProject(projectList[currProject], mainArea, editTask);
+    displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
 }
 
 function editProject(projectIdx) {
@@ -205,5 +219,5 @@ function editProject(projectIdx) {
         sideBar && sideBar.appendChild(h);
     }
 
-    displayProject(projectList[currProject], mainArea, editTask);
+    displayProject(projectList[currProject], mainArea, { editTask, deleteTask, completeTask });
 })();

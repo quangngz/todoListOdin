@@ -9,19 +9,19 @@
 <body>
     <div class="h-screen flex">
         <!--Side bar-->
-        <div id = "sideBar" class="w-64 h-screen bg-blue-500 flex flex-col items-center justify-evenly">
+        <div id = "sideBar" class="w-64 h-screen bg-green-400 flex flex-col items-center justify-evenly">
             <button id="addTask" class="px-4 py-2 bg-white text-black rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">Add task</button>
             <button id="addProject" class="px-4 py-2 bg-white text-black rounded-md shadow hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-300">Add project</button>
             <div id="home">Home</div>
             <!-- TODO: Display projects individually below -->
         </div>
         <!-- Main area-->
-        <div id="mainArea" class="flex-1 bg-red-100 w-screen h-screen text-center">
+        <div id="mainArea" class="flex-1 bg-green-100 w-screen h-screen text-center">
         </div>
     </div>
     <!-- Explaining tags: fixed inset-0: covers screen -->
     <!-- Modal backdrop + centered card -->
-    <div id="popup-addTask" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+    <div id="popup-addTask" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                      items-center justify-center bg-black/40"> <!--Add hidden-->
         <div class="bg-white rounded-lg shadow-lg w-96 p-6">
             <form id="editForm" class="space-y-4">
@@ -69,7 +69,7 @@
     </div>
 
 
-    <div id="popup-addProject" class=" fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+    <div id="popup-addProject" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                      items-center justify-center bg-black/40">
         <div class="bg-white rounded-lg shadow-lg w-96 p-6">
             <form id="projectForm" class="space-y-4"> <!--space-y-4 to provide verical gaps between inner components-->
